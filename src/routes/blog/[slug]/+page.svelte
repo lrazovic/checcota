@@ -13,10 +13,9 @@
 
 <div>
 	<article>
-		<header>
-			<h1>{data.post.title}</h1>
-
-			<div>
+		<header class="mb-8">
+			<h1 class="text-[1.3em] mb-2">{data.post.title}</h1>
+			<div class="text-[color:var(--theme-sub-text)]">
 				<time datetime={data.post.date}>
 					{new Date(data.post.date).toLocaleDateString('en-US', {
 						year: 'numeric',
@@ -27,12 +26,12 @@
 			</div>
 		</header>
 
-		<div>
+		<div class="prose max-w-none">
 			<PostComponent />
 		</div>
 	</article>
 
-	<nav>
+	<nav class="mt-12">
 		<a href="/blog"> ← Back to blog </a>
 	</nav>
 </div>

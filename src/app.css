@@ -1,1 +1,91 @@
 @import 'tailwindcss';
+
+/* Monaspace Neon font faces */
+@font-face {
+	font-family: "Monaspace Neon";
+	src: url("/fonts/MonaspaceNeon-Regular.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Monaspace Neon";
+	src: url("/fonts/MonaspaceNeon-Italic.woff2") format("woff2");
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Monaspace Neon";
+	src: url("/fonts/MonaspaceNeon-Bold.woff2") format("woff2");
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+@layer base {
+	:root {
+		--color-gray: #7c7c7a;
+		--color-gray-medium: #e1e1e0;
+		--color-gray-light: #f9f7f4;
+		--color-black-light: #1f1f1f;
+		--color-red: #e77728;
+		--color-white: #fff;
+		--color-white-light: #cccccc;
+
+		--theme-bg: var(--color-gray-light);
+		--theme-text: var(--color-black-light);
+		--theme-sub-text: var(--color-gray);
+		--theme-link: var(--color-red);
+		--theme-link-hover: var(--color-white);
+		--theme-code-block: var(--color-gray-medium);
+
+		color-scheme: light dark;
+		color: var(--theme-text);
+		font-family: "Monaspace Neon", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+		line-height: 1.5em;
+		hyphens: auto;
+	}
+
+	@media (prefers-color-scheme: dark) {
+		:root {
+			--theme-bg: var(--color-black-light);
+			--theme-text: var(--color-white-light);
+			--theme-code-block: var(--color-gray);
+		}
+	}
+
+	html, body, #svelte {
+		height: 100%;
+	}
+
+	body {
+		background: var(--theme-bg);
+	}
+
+	a {
+		color: var(--theme-link);
+		font-weight: 400;
+	}
+
+	a:hover {
+		background-color: var(--color-red);
+		color: var(--theme-link-hover);
+		text-decoration: none !important;
+	}
+
+	p, span {
+		font-size: 1rem;
+		color: var(--theme-text);
+	}
+
+	small { font-size: 0.833rem; }
+
+	hr {
+		background-color: var(--theme-sub-text);
+		border-color: transparent;
+		border-bottom: none;
+	}
+}

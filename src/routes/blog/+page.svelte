@@ -1,6 +1,5 @@
 <script lang="ts">
 	import type { PageData } from './$types';
-
 	let { data }: { data: PageData } = $props();
 </script>
 
@@ -10,21 +9,20 @@
 </svelte:head>
 
 <div>
-	<h1>Blog</h1>
+	<h1 class="text-xl font-normal mb-2 text-[color:var(--theme-sub-text)]">Notes</h1>
 
 	{#if data.posts.length === 0}
 		<p>No posts published yet.</p>
 	{:else}
-		<div>
+		<div class="space-y-2">
 			{#each data.posts as post}
-				<article>
-					<h2>
-						<a href="/blog/{post.slug}">
+				<article class="flex justify-between">
+					<h2 class="m-0 mr-4 text-[1em] min-w-0 flex text-[color:var(--theme-link)] hover:text-[color:var(--theme-link-hover)]">
+						<a class="truncate" href="/blog/{post.slug}">
 							{post.title}
 						</a>
 					</h2>
-
-					<div>
+					<span class="text-[color:var(--theme-sub-text)] whitespace-nowrap">
 						<time datetime={post.date}>
 							{new Date(post.date).toLocaleDateString('en-US', {
 								year: 'numeric',
@@ -32,9 +30,7 @@
 								day: 'numeric'
 							})}
 						</time>
-					</div>
-
-					<p>{post.description}</p>
+					</span>
 				</article>
 			{/each}
 		</div>
