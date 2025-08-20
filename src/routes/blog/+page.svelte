@@ -35,16 +35,6 @@
 					</div>
 
 					<p>{post.description}</p>
-
-					{#if post.categories.length > 0}
-						<div>
-							{#each post.categories as category}
-								<span>
-									{category}
-								</span>
-							{/each}
-						</div>
-					{/if}
 				</article>
 			{/each}
 		</div>

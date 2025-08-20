@@ -63,24 +63,21 @@ export async function loadPostsMetadata(): Promise<PostMetadata[]> {
  * Get a single post by slug
  */
 export async function getPost(slug: string): Promise<Post | null> {
-	// Use a static glob map for Vite to pre-bundle all posts, then select by slug
-	const modules = import.meta.glob<{ default: Component; metadata: PostMeta }>('/src/posts/*.svx');
+	// Use eager static glob to avoid mixing dynamic + static imports
+	const modules = import.meta.glob<{ default: Component; metadata: PostMeta }>('/src/posts/*.svx', {
+		eager: true
+	});
 	const entry = Object.entries(modules).find(([path]) => path.endsWith(`/${slug}.svx`));
 	if (!entry) return null;
 
-	try {
-		const mod = await entry[1]();
-		if (!mod.metadata.published) return null;
-		return {
-			slug,
-			title: mod.metadata.title,
-			description: mod.metadata.description,
-			date: mod.metadata.date,
-			published: mod.metadata.published ?? true,
-			content: mod.default
-		} satisfies Post;
-	} catch (e) {
-		console.error(`Error loading post ${slug}:`, e);
-		return null;
-	}
+	const mod = entry[1];
+	if (!mod.metadata.published) return null;
+	return {
+		slug,
+		title: mod.metadata.title,
+		description: mod.metadata.description,
+		date: mod.metadata.date,
+		published: mod.metadata.published ?? true,
+		content: mod.default
+	} satisfies Post;
 }
