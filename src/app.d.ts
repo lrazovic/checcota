@@ -11,3 +11,18 @@ declare global {
 }
 
 export {};
+
+// Typed mdsvex modules (.svx)
+declare module '*.svx' {
+	import type { Component } from 'svelte';
+
+	export const metadata: {
+		title: string;
+		description: string;
+		date: string; // ISO string preferred
+		published?: boolean;
+	};
+
+	const component: Component;
+	export default component;
+}

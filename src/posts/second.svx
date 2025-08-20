@@ -1,0 +1,42 @@
+---
+title: Second Post
+description: A second blog post to test the listing functionality.
+date: '2024-1-15'
+categories:
+  - web
+  - javascript
+published: true
+---
+
+## Welcome to the Second Post
+
+This is another blog post to demonstrate how the blog listing works with multiple posts.
+
+### Features Demonstrated
+
+- Multiple posts in the listing
+- Date sorting (newest first)
+- Category tags
+- Proper markdown rendering
+
+### Code Example
+
+Here's a simple JavaScript function:
+
+```js
+function formatDate(date) {
+	return new Intl.DateTimeFormat('en-US', {
+		year: 'numeric',
+		month: 'long',
+		day: 'numeric'
+	}).format(new Date(date));
+}
+```
+
+### List Example
+
+- First item
+- Second item
+- Third item
+
+That's all for this post! 🚀
