@@ -49,6 +49,11 @@
 		hyphens: auto;
 	}
 
+	::view-transition-old(root),
+	::view-transition-new(root) {
+		animation-duration: 0.15s;
+	}
+
 	@media (prefers-color-scheme: dark) {
 		:root {
 			--theme-bg: var(--color-black-light);
