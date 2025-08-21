@@ -6,7 +6,8 @@
 </script>
 
 <div
-	class="mx-auto min-h-dvh max-w-[60em] px-[4em] py-[6.472em] text-[13px] sm:max-w-full sm:px-[1rem] sm:py-[1.618rem] sm:text-[14px]"
+	class="mx-auto min-h-dvh max-w-[60em] px-[7em] py-[7em] text-[13px]
+	max-[480px]:max-w-full max-[480px]:px-[1em] max-[480px]:py-[1em] max-[480px]:text-[14px]"
 >
 	<SiteHeader {title} />
 

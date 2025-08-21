@@ -5,7 +5,7 @@
 </script>
 
 <Intro />
-<h2 class="mb-2 text-[1em] font-normal text-[color:var(--theme-sub-text)]">Recent notes:</h2>
+<h2 class="mb-[0.5em] text-[color:var(--theme-sub-text)] no-underline text-[1em] font-normal">Recent notes:</h2>
 {#if data.posts?.length}
 	<div class="space-y-2">
 		{#each data.posts as post}

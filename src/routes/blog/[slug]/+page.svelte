@@ -14,7 +14,7 @@
 <div>
 	<article>
 		<header class="mb-8">
-			<h1 class="mb-2 text-[1.3em]">{data.post.title}</h1>
+			<h1 class="text-[1.3em] mb-2">{data.post.title}</h1>
 			<div class="text-[color:var(--theme-sub-text)]">
 				<time datetime={data.post.date}>
 					{new Date(data.post.date).toLocaleDateString('en-US', {
@@ -26,7 +26,7 @@
 			</div>
 		</header>
 
-		<div class="prose max-w-none">
+		<div>
 			<PostComponent />
 		</div>
 	</article>
