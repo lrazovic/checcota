@@ -2,6 +2,7 @@
 	import '../app.css';
 	import favicon from '$lib/assets/favicon.svg';
 	import BaseLayout from '$lib/layouts/BaseLayout.svelte';
+	import { page } from '$app/state';
 
 	let { children } = $props();
 	import { onNavigate } from '$app/navigation';
@@ -41,6 +42,8 @@
 		type="font/woff2"
 		crossorigin="anonymous"
 	/>
+	<title>{page.data?.seo?.title ?? 'Leonardo Razovic'}</title>
+	<meta name="description" content={page.data?.seo?.description ?? 'Software engineer. Notes and posts.'} />
 </svelte:head>
 
 <BaseLayout>

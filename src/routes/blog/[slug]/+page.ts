@@ -10,6 +10,10 @@ export const load: PageLoad = async ({ params }) => {
 	}
 
 	return {
-		post
+		post,
+		seo: {
+			title: post.title,
+			description: post.description
+		}
 	};
 };
